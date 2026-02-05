@@ -1,0 +1,40 @@
+{
+  "name": "@audit-trail-ai/sdk",
+  "version": "1.0.0",
+  "description": "Tamper-proof logging for AI decisions with SOC2/ISO27001/GDPR compliance",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "audit",
+    "compliance",
+    "ai",
+    "blockchain",
+    "gdpr",
+    "soc2",
+    "iso27001"
+  ],
+  "author": "Audit Trail AI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "eslint": "^8.55.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  },
+  "peerDependencies": {
+    "axios": "^1.6.0"
+  }
+}

@@ -1,0 +1,105 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "audit-trail-ai"
+version = "1.0.0"
+description = "Tamper-proof logging system for AI decisions - SOC2/ISO27001/GDPR compliant"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Audit Trail AI Team"}
+]
+keywords = ["audit", "compliance", "ai", "blockchain", "gdpr", "soc2", "iso27001"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    # Web Framework
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "python-multipart>=0.0.6",
+    
+    # Database
+    "sqlalchemy>=2.0.25",
+    "alembic>=1.13.1",
+    "asyncpg>=0.29.0",
+    "psycopg2-binary>=2.9.9",
+    
+    # Blockchain & Cryptography
+    "web3>=6.15.0",
+    "cryptography>=42.0.0",
+    "pydantic>=2.5.3",
+    "pydantic-settings>=2.1.0",
+    "hashlib2>=0.1.2",
+    "eth-hash[pycryptodome]>=0.7.0",
+    "pymerkle>=4.0.0",
+    
+    # Security & Auth
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-jwt>=4.1.0",
+    
+    # Monitoring & Logging
+    "structlog>=24.1.0",
+    "prometheus-client>=0.19.0",
+    "opentelemetry-api>=1.22.0",
+    "opentelemetry-sdk>=1.22.0",
+    
+    # Utilities
+    "python-dateutil>=2.8.2",
+    "httpx>=0.26.0",
+    "aiofiles>=23.2.1",
+    "tenacity>=8.2.3",
+    "orjson>=3.9.12",
+    "shortuuid>=1.0.11",
+    
+    # Export Formats
+    "pandas>=2.1.4",
+    "openpyxl>=3.1.2",
+    "reportlab>=4.0.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.4",
+    "pytest-asyncio>=0.23.3",
+    "pytest-cov>=4.1.0",
+    "black>=24.1.1",
+    "isort>=5.13.2",
+    "flake8>=7.0.0",
+    "mypy>=1.8.0",
+    "httpx>=0.26.0",
+    "factory-boy>=3.3.0",
+]
+
+[project.scripts]
+audit-trail = "app.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
