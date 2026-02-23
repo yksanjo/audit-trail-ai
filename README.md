@@ -1,5 +1,12 @@
 # audit-trail-ai
 
+Production-grade project scaffold focused on reliability, maintainability, and fast onboarding.
+
+[![CI](https://img.shields.io/github/actions/workflow/status/yksanjo/audit-trail-ai/ci.yml?branch=main&label=ci)](https://github.com/yksanjo/audit-trail-ai/actions)
+![License](https://img.shields.io/github/license/yksanjo/audit-trail-ai)
+![Last Commit](https://img.shields.io/github/last-commit/yksanjo/audit-trail-ai)
+![Repo Size](https://img.shields.io/github/repo-size/yksanjo/audit-trail-ai)
+
 ## Detailed Description
 
 audit-trail-ai is maintained as an industry-grade software project with production-ready engineering practices.  
@@ -46,8 +53,10 @@ Summarize the architecture, core modules, and runtime behavior at a high level.
 ### Local Setup
 
 ```bash
-make test
-make lint
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt  # or: pip install -e .[dev]
+pytest
 ```
 
 ## Usage
